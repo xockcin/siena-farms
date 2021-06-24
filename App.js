@@ -10,16 +10,25 @@ import ItemCard from './components/ItemCard'
 
 import {items} from './shared/items'
 
-import * as SplashScreen from "expo-splash-screen";
-
-SplashScreen.preventAutoHideAsync();
-setTimeout(SplashScreen.hideAsync, 5000);
-
-export default function App() {
+const BoxListScreen = () => {
   return (
     <PageFrame title="In The Box">
       <BoxList />
     </PageFrame>
+  )
+}
+
+const ItemCardScreen = ({item}) => {
+  return (
+    <PageFrame title={item.name}>
+      <ItemCard item={item} />
+    </PageFrame>
+  )
+}
+
+export default function App() {
+  return (
+    <BoxListScreen />
   );
 }
 
