@@ -3,9 +3,10 @@ import React from "react";
 import {TouchableOpacity, Image, Text, StyleSheet} from "react-native"
 
 const BoxItem = ({ item, showThisItem }) => {
+  console.log(item.image)
   return (
     <TouchableOpacity style={styles.item} onPress={() => showThisItem(item)}>
-      <Image style={styles.img} source={item.img} />
+      <Image style={styles.img} source={item.image} />
       <Text style={styles.name}>{item.name}</Text>
     </TouchableOpacity>
   );
