@@ -13,39 +13,29 @@ import {
 
 import { items } from "../shared/items";
 
-const Item = ({ name, img }) => {
+const Item = ({ item }) => {
   return (
     <TouchableOpacity style={styles.item}>
-      <Image style={styles.img} source={img} />
-      <Text style={styles.name}>{name}</Text>
+      <Image style={styles.img} source={item.img} />
+      <Text style={styles.name}>{item.name}</Text>
     </TouchableOpacity>
   );
 };
 
-const BoxList = () => {
-  const renderItem = ({ item }) => <Item name={item.name} img={item.image} />;
+const BoxList = ({items}) => {
+  const renderItem = ({ item }) => <Item item={item} />;
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <FlatList
-          data={items}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-        />
-      </ScrollView>
-    </SafeAreaView>
+    <ScrollView>
+      <FlatList
+        data={items}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: 30,
-    marginBottom: 30,
-    marginLeft: 20,
-    marginRight: 20,
-    backgroundColor: "#FFFFFF",
-  },
   item: {
     backgroundColor: "#e1e1e1",
     padding: 10,

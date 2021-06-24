@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
-
-import {View, Image, Text, StyleSheet} from "react-native"
+import React from 'react';
+import {View, Image, Text, StyleSheet, ScrollView, Button} from "react-native"
 import { Divider } from "react-native-elements";
 
 const PageFrame = (props) => {
@@ -12,8 +11,11 @@ const PageFrame = (props) => {
           <Text style={styles.title}>{props.title}</Text>
           <Divider style={{ backgroundColor: "white", height: 2 }} />
         </View>
+        {props.back ? <Button onPress={props.back} style={styles.backButton} title="Back" /> : null}
       </View>
-      {props.children}
+      <ScrollView>
+        {props.children}
+      </ScrollView>
     </View>
   );
 }
@@ -39,6 +41,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  backButton: {
+    marginRight: 100
+  }
 })
 
 export default PageFrame;

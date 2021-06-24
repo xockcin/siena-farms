@@ -17,7 +17,14 @@ const Recipes = ({recipes}) => {
       </View>
     );
   });
-  return <View>{recipeList}</View>;
+  return (
+    <View>
+      <Text style={{ textAlign: "center", fontSize: 36, fontFamily: "serif" }}>
+        Recipes
+      </Text>
+      {recipeList}
+    </View>
+  );
 }
 
 const Card = ({item}) => {
@@ -27,11 +34,6 @@ const Card = ({item}) => {
         <View style={styles.background}>
           <Image style={styles.image} source={item.image} />
           <Text style={styles.text}>{item.text}</Text>
-          <Text
-            style={{ textAlign: "center", fontSize: 36, fontFamily: "serif" }}
-          >
-            Recipes
-          </Text>
           <Recipes recipes={item.recipes} />
         </View>
       </ScrollView>
