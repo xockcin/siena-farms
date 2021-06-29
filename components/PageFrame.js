@@ -11,11 +11,11 @@ const PageFrame = (props) => {
           <Text style={styles.title}>{props.title}</Text>
           <Divider style={{ backgroundColor: "white", height: 2 }} />
         </View>
-        {props.back ? <Button onPress={props.back} style={styles.backButton} title="Back" /> : null}
       </View>
-      <ScrollView>
-        {props.children}
-      </ScrollView>
+      {props.children}
+      {props.back ? (
+          <Button color="#faaf0f" onPress={props.back} title="Back" />
+      ) : null}
     </View>
   );
 }
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   backButton: {
     marginRight: 100,
-    backgroundColor: "#FFFFFF"
+    color: "#ff0000"
   }
 })
 

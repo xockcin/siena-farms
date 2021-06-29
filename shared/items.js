@@ -78,6 +78,7 @@ export const items = [
     },
     text: "Yellow storage onions to help you form the base of many delicious recipes. ",
     storage: "counter",
+    recipes: []
   },
   {
     id: 6,
@@ -89,6 +90,7 @@ export const items = [
     },
     text: "A fellow Sudbury native, our farmers live exclusively off these beans. Fair trade and brews a delicious cup. Enjoy!",
     storage: "counter",
+    recipes: []
   },
   {
     id: 7,

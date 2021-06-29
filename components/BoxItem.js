@@ -2,10 +2,9 @@ import React from "react";
 
 import {TouchableOpacity, Image, Text, StyleSheet} from "react-native"
 
-const BoxItem = ({ item, showThisItem }) => {
-  console.log(item.image)
+const BoxItem = ({ item, activate }) => {
   return (
-    <TouchableOpacity style={styles.item} onPress={() => showThisItem(item)}>
+    <TouchableOpacity style={styles.item} onPress={() => activate(item)}>
       <Image style={styles.img} source={item.image} />
       <Text style={styles.name}>{item.name}</Text>
     </TouchableOpacity>
@@ -14,7 +13,7 @@ const BoxItem = ({ item, showThisItem }) => {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: "#e1e1e1",
+    backgroundColor: "#e5e5e5",
     padding: 10,
     marginVertical: 10,
     marginHorizontal: 10,

@@ -11,6 +11,7 @@ import {
 
 const Recipes = ({recipes}) => {
   const recipeList = recipes.map((recipe) => {
+    
     return (
       <View style={styles.recipe}>
         <Text style={styles.recipeText}>{recipe}</Text>

@@ -1,41 +1,64 @@
-import { StatusBar } from 'expo-status-bar';
-import React, {useState} from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native'
-import { createStackNavigator } from "@react-navigation/stack"
-import logo from './assets/logo.jpg'
-import PageFrame from './components/PageFrame'
-import BoxList from './components/BoxList'
-import ItemCard from './components/ItemCard'
+// IMPORTS
 
-import {items} from './shared/items'
+import React, { useState } from "react";
 
-const BoxListScreen = () => {
-  return (
-    <PageFrame title="In The Box">
-      <BoxList />
-    </PageFrame>
-  )
-}
+import {
+  StyleSheet,
+  View,
+  FlatList,
+} from "react-native";
 
-const ItemCardScreen = ({item}) => {
-  return (
-    <PageFrame title={item.name}>
-      <ItemCard item={item} />
-    </PageFrame>
-  )
-}
+import PageFrame from "./components/PageFrame";
+import ItemCard from "./components/ItemCard";
+import BoxItem from "./components/BoxItem";
+
+import { items } from "./shared/items";
+
+// FUNCTIONS
 
 export default function App() {
+  // i.e. at first, no item is being shown
+  [shownItem, setShownItem] = useState(null);
+
+  const showThisItem = (item) => setShownItem(item);
+  const returnToBoxList = () => setShownItem(null);
+
+  // i.e. if shownItem isn't null || if there is an item being shown
+  if (shownItem) {
+    return (
+      <PageFrame title={shownItem.name} back={returnToBoxList}>
+        <ItemCard item={shownItem} />
+      </PageFrame>
+    );
+  }
+
+  // else
+
+  const renderItem = ({ item }) => (
+    <BoxItem item={item} activate={showThisItem} />
+  );
+
   return (
-    <BoxListScreen />
+    <PageFrame title="In The Box">
+      <View style={styles.container}>
+        <FlatList
+          data={items}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+    </PageFrame>
   );
 }
+
+// STYLES
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    margin: 20,
+    marginBottom: 20,
   },
   button: {
     backgroundColor: "blue",
