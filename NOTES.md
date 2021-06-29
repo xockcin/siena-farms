@@ -21,3 +21,7 @@ The app is looking good, and so is the code. Right now it launches right to the 
 The idea is, using the useState hook instead of a full-on router like React Navigation, whose API I find cumbersome and annoying, will force me to maintain a strictly hierarchical routing structure. Indeed, the question of what pages should be accessible from what other pages is one of the fundamental questions of UX design. I think designers these days are too eager to make everything accessible from everywhere. They think the purpose of design is to remove constraint, where actually the purpose of design is to *provide* constraint.
 
 In the Siena app, after I'm done with this next step, it will go like this: You start at the main menu. From the main menu, you can select "In The Box". There will be other buttons, but they won't work yet. If you tap "In The Box", you will be taken to the box list screen, which will now have a back button. Aside from that, everything will be the same.
+
+The way I'm going to do this is with another hook. I just tried to explain it in words, but I think it will actually be easier to just do it. But first I'm going to sketch it out in Framer.
+
+In fact, I think it would be a good use of my time to spend perhaps the rest of the morning boning up on how to use Framer. I've played around with a few prototyping tools, mostly Figma (which I gather is the most popular), but I think I like Framer the best. I'm not sure why, but I'm sure there's a reason.
