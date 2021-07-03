@@ -5,7 +5,7 @@ export const pageFrameStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#82AB01",
   },
-  title: {
+  headerText: {
     color: "#FFFFFF",
     fontSize: 36,
     marginBottom: 20,
@@ -16,7 +16,7 @@ export const pageFrameStyles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 30,
   },
-  titleBox: {
+  header: {
     marginTop: 20,
     flexDirection: "row",
     alignItems: "center",
@@ -27,7 +27,7 @@ export const pageFrameStyles = StyleSheet.create({
   },
 });
 
-export const styles = StyleSheet.create({
+export const itemCardStyles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 30,
@@ -35,9 +35,38 @@ export const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     backgroundColor: "#FFFFFF",
+    padding: 10,
   },
+  background: {
+    backgroundColor: "#e5e5e5",
+    padding: 20,
+    justifyContent: "center",
+  },
+  image: {
+    height: 150,
+    width: 250,
+  },
+  text: {
+    fontSize: 18,
+    textAlign: "center",
+    marginTop: 10,
+  },
+  recipeLink: {
+    backgroundColor: "#F8981C",
+    borderWidth: 2,
+    borderColor: "#FFFFFF",
+    margin: 3,
+    padding: 10,
+  },
+  recipeText: {
+    color: "#FFFFFF",
+    textAlign: "center",
+  },
+});
+
+export const boxItemStyles = StyleSheet.create({
   item: {
-    backgroundColor: "#e1e1e1",
+    backgroundColor: "#e5e5e5",
     padding: 10,
     marginVertical: 10,
     marginHorizontal: 10,
