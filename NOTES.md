@@ -25,3 +25,7 @@ In the Siena app, after I'm done with this next step, it will go like this: You 
 The way I'm going to do this is with another hook. I just tried to explain it in words, but I think it will actually be easier to just do it. But first I'm going to sketch it out in Framer.
 
 In fact, I think it would be a good use of my time to spend perhaps the rest of the morning boning up on how to use Framer. I've played around with a few prototyping tools, mostly Figma (which I gather is the most popular), but I think I like Framer the best. I'm not sure why, but I'm sure there's a reason.
+
+# 7/3/21 
+
+I've just been reorganizing my stylesheets. Right now I am trying out the unusual approach of having all the stylesheet objects as named exports in one big file in my shared folder, and then importing and destructuring them. I like having them all in one file, but I think that the destructuring part is a bridge too far. Namespace is good. I think what I will do is import the stylesheet "as" styles, that way the name is still nice and compact.
