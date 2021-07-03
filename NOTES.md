@@ -29,3 +29,39 @@ In fact, I think it would be a good use of my time to spend perhaps the rest of 
 # 7/3/21 
 
 I've just been reorganizing my stylesheets. Right now I am trying out the unusual approach of having all the stylesheet objects as named exports in one big file in my shared folder, and then importing and destructuring them. I like having them all in one file, but I think that the destructuring part is a bridge too far. Namespace is good. I think what I will do is import the stylesheet "as" styles, that way the name is still nice and compact.
+
+Okay, that's done. Now I think I'll make it so the recipe links actually work.
+
+Actually, I can do that later. Copying and pasting the links in will be annoying busy work. I would rather figure out a better way of adding the data into the app first. Which I guess means it's time for me to put together the backend.
+
+I should mention that I still haven't put the main menu screen in yet, because I'm not sure how I want it to look, and also just because I don't feel like it, both of which are perfectly valid reasons for not doing something that isn't urgent. Not that any of this is urgent.
+
+Anyway, let's think about the backend logic. What is a box item? A box item is an object that looks like this:
+
+```
+{
+  id: number,
+  name: string,
+  image: require(filepath),
+  source: {
+    name: string,
+    url: string,
+    location: string,
+  },
+  description: string,
+  storage: string,
+  recipes: [
+    {
+      name: string,
+      url: string
+    },
+    ...
+  ]
+}
+```
+
+As I am thinking about how to organize the backend of this app, my main thought is that, although naturally there will be a menu of potential items for the admin to choose from while assembling the contents of the box, a box item will not be quite the same sort of thing as a *potential* box item.
+
+Actually, it is premature to even think about potential box item menus. All you need to be able to do at first is add items. I should begin by doing the back4app tutorial.
+
+I have spent most of the afternoon reading the Back4App documentation, and I think it will be just the thing for me to build my backend. There is some more stuff I need to read, but pretty soon it will be time for me to think a little more carefully about how I actually want my backend to work. That will be for tomorrow.
