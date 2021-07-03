@@ -1,20 +1,25 @@
+import { background } from 'jimp';
 import React from 'react';
 import {View, Image, Text, StyleSheet, ScrollView, Button} from "react-native"
 import { Divider } from "react-native-elements";
+import { pageFrameStyles } from '../shared/styles';
 
 const PageFrame = ({title, back}) => {
   return (
-    <View style={styles.background}>
-      <View style={styles.titleBox}>
-        <Image style={styles.logo} source={require("../assets/logo.jpg")} />
+    <View style={pageFrameStyles.background}>
+      <View style={pageFrameStyles.titleBox}>
+        <Image
+          style={pageFrameStyles.logo}
+          source={require("../assets/logo.jpg")}
+        />
         <View>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={pageFrameStyles.title}>{title}</Text>
           <Divider style={{ backgroundColor: "white", height: 2 }} />
         </View>
       </View>
       {props.children}
       {props.back ? (
-          <Button color="#faaf0f" onPress={back} title="Back" />
+        <Button color="#faaf0f" onPress={back} title="Back" />
       ) : null}
     </View>
   );
