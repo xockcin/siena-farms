@@ -35,7 +35,7 @@ const Card = ({item}) => {
         <View style={styles.background}>
           <Image style={styles.image} source={item.image} />
           <Text style={styles.text}>{item.text}</Text>
-          <Recipes recipes={item.recipes} />
+          {item.recipes.length ? <Recipes recipes={item.recipes} /> : null}
         </View>
       </ScrollView>
     </SafeAreaView>
