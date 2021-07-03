@@ -2,19 +2,19 @@ import React from 'react';
 import {View, Image, Text, StyleSheet, ScrollView, Button} from "react-native"
 import { Divider } from "react-native-elements";
 
-const PageFrame = (props) => {
+const PageFrame = ({title, back}) => {
   return (
     <View style={styles.background}>
       <View style={styles.titleBox}>
         <Image style={styles.logo} source={require("../assets/logo.jpg")} />
         <View>
-          <Text style={styles.title}>{props.title}</Text>
+          <Text style={styles.title}>{title}</Text>
           <Divider style={{ backgroundColor: "white", height: 2 }} />
         </View>
       </View>
       {props.children}
       {props.back ? (
-          <Button color="#faaf0f" onPress={props.back} title="Back" />
+          <Button color="#faaf0f" onPress={back} title="Back" />
       ) : null}
     </View>
   );
