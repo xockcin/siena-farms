@@ -65,3 +65,25 @@ As I am thinking about how to organize the backend of this app, my main thought 
 Actually, it is premature to even think about potential box item menus. All you need to be able to do at first is add items. I should begin by doing the back4app tutorial.
 
 I have spent most of the afternoon reading the Back4App documentation, and I think it will be just the thing for me to build my backend. There is some more stuff I need to read, but pretty soon it will be time for me to think a little more carefully about how I actually want my backend to work. That will be for tomorrow.
+
+# 7/4/21
+
+Let's talk backend.
+
+The first thing the backend needs to do is serve the box item data.
+
+A box is just an array of box items. Each box item is an object with the properties enumerated above. All the app front-end needs to do is get that array of objects and use it as props. Simple.
+
+But the next question is, how to get that box item data into the database to begin with? For that I suppose I will need to also build out another, web-based front end for the admin. There are probably nice premade templates, but before I go looking for one I need to think about exactly what I want it to do.
+
+I am thinking that the database will actually look like an array of boxes. I said before that a box is an array of box items, but now I'm thinking that actually a box is an object consisting of an array of items and a date. The app will automatically load the most recent box, but the others will be accessible as well.
+
+So let's say I am the admin. How do I load up a box? I suppose I would start by hitting the "create new box" button. That brings me to a screen with a form. Let's say there is a form on the right and a rectangle on the left. I type in all the data about the item, and then hit the "add item" button, which adds the item into the rectangle and clears out the list. A classic entry-level react project.
+
+Then, of course, there is the part where you actually publish the box to the server.
+
+I'm still not sure that I'm going to use Back4App. Firebase might be a better choice. I'll need to spend some time researching Firebase.
+
+It might not actually make all that much of a difference. I'm sure they both offer all the features I need.
+
+Regardless - what I need to do probably is build out a little web app that looks slightly nice and makes it easy to post items to the box. Then I can change the React Native app so that it pulls its box item data from the database instead of having it hard-coded.
