@@ -1,58 +1,66 @@
-import React from "react";
-import {
-  SafeAreaView,
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  StatusBar,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
+// IMPORTS
+
+import React, { useState } from "react";
+
+import { StyleSheet, View, FlatList } from "react-native";
+
+import PageFrame from "./PageFrame";
+import ItemCard from "./ItemCard";
+import BoxItem from "./BoxItem";
 
 import { items } from "../shared/items";
 
-const Item = ({ item }) => {
-  return (
-    <TouchableOpacity style={styles.item}>
-      <Image style={styles.img} source={item.img} />
-      <Text style={styles.name}>{item.name}</Text>
-    </TouchableOpacity>
-  );
-};
+// FUNCTIONS
 
-const BoxList = ({items}) => {
-  const renderItem = ({ item }) => <Item item={item} />;
-  return (
-    <ScrollView>
-      <FlatList
-        data={items}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-    </ScrollView>
+export default function BoxList() {
+  // i.e. at first, no item is being shown
+  [shownItem, setShownItem] = useState(null);
+
+  const showThisItem = (item) => setShownItem(item);
+  const returnToBoxList = () => setShownItem(null);
+
+  // i.e. if shownItem isn't null || if there is an item being shown
+  if (shownItem) {
+    return (
+      <PageFrame title={shownItem.name} back={returnToBoxList}>
+        <ItemCard item={shownItem} />
+      </PageFrame>
+    );
+  }
+
+  // else
+
+  const renderItem = ({ item }) => (
+    <BoxItem item={item} activate={showThisItem} />
   );
-};
+
+  return (
+    <PageFrame title="In The Box">
+      <View style={styles.container}>
+        <FlatList
+          data={items}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+        />
+      </View>
+    </PageFrame>
+  );
+}
+
+// STYLES
 
 const styles = StyleSheet.create({
-  item: {
-    backgroundColor: "#e1e1e1",
-    padding: 10,
-    marginVertical: 10,
-    marginHorizontal: 10,
-    flexDirection: "row",
-    alignItems: "center",
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    margin: 20,
+    marginBottom: 20,
   },
-  name: {
-    fontSize: 32,
-    fontFamily: "serif",
+  button: {
+    backgroundColor: "blue",
   },
-  img: {
-    height: 90,
-    width: 90,
-    marginRight: 10,
+  buttonText: {
+    fontSize: 20,
+    color: "#fff",
   },
 });
-
-export default BoxList;
